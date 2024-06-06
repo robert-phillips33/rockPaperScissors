@@ -1,3 +1,8 @@
+.hidden {
+  display: none;
+}
+
+
 body {
   display: flex;
   text-align: center;
@@ -10,19 +15,18 @@ body {
   margin: auto;
 
 }
+
 main {
   display: flex;
   flex-direction: column;
   width: 60vw;
   border: 2px solid blue;
-  
-  
-  
 }
 
 h1 {
   font-size: 50px;
   
+
 }
 
 h3 {
@@ -33,23 +37,23 @@ p {
   font-size: 18px
 }
 
-.classic-mode{
+.classic-mode {
   display: flex;
   text-align: center;
   justify-content: center;
-  
+
 }
 
 .classic-box {
-  margin-top: 10vh;
-  height: 17vw;
+  margin-top: 1vh;
+  height: 12vw;
   width: 20vw;
   padding-top: 35px;
-  border: 2px solid greenyellow
+  border: 2px double greenyellow;
   
 }
 
-.difficult-mode{
+.difficult-mode {
   display: flex;
   text-align: center;
   justify-content: center;
@@ -57,9 +61,41 @@ p {
 
 .difficult-box {
   margin-top: 5vh;
-  height: 21vw;
+  height: 19vw;
   width: 20vw;
   padding-top: 35px;
-  border: 2px solid greenyellow
+  border: 2px double greenyellow
+}
+
+
+.player-card {
   
+}
+
+.player-box {
+  border: 2px double greenyellow;
+  position: absolute;
+  top: 5vw;
+  left: 4vw;
+  height: 10vw;
+  width: 11vw;
+  
+}
+
+#player-wins-total {
+  font-size: 30px;
+}
+
+.computer-box {
+  border: 2px double greenyellow;
+  position: absolute;
+  top: 5vw;
+  right: 4vw;
+  height: 10vw;
+  width: 11vw;
+  
+}
+
+#computer-wins-total {
+  font-size: 30px;
 }
