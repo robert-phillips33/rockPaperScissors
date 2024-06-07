@@ -1,0 +1,117 @@
+
+
+body {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: black;
+  color: greenyellow;
+  height: 100vh;
+  /* border: 2px solid red; */
+  margin: auto;
+
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  /* border: 2px solid blue; */
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+p {
+  font-size: 25px
+}
+
+.classic-mode {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  
+}
+
+.classic-box {
+  margin-top: 1vh;
+  height: 12vw;
+  width: 20vw;
+  padding-top: 35px;
+  border: 2px double greenyellow;
+  gap: 2px;
+  
+}
+
+.difficult-mode {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.difficult-box {
+  margin-top: 5vh;
+  height: 28vw;
+  width: 20vw;
+  padding-top: 35px;
+  border: 2px double greenyellow
+}
+
+
+.player-card {
+  
+}
+
+.player-box {
+  border: 2px double greenyellow;
+  position: absolute;
+  top: 5vw;
+  left: 4vw;
+  height: 10vw;
+  width: 11vw;
+  
+}
+
+#player-wins-total {
+  font-size: 30px;
+}
+
+.computer-box {
+  border: 2px double greenyellow;
+  position: absolute;
+  top: 5vw;
+  right: 4vw;
+  height: 10vw;
+  width: 11vw;
+  
+}
+
+#computer-wins-total {
+  font-size: 30px;
+}
+
+.classic-mode-view {
+  display: flex;
+  justify-content: center;
+  gap: 3vw;
+  border: 2px solid yellowgreen;
+  align-items: center;
+  width: 60vw;
+  height: 30vw;
+  text-align: center;
+}
+
+
+
+
+
+.hidden {
+  display: none;
+}
+
