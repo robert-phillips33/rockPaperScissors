@@ -8,7 +8,7 @@ body {
   background-color: black;
   color: greenyellow;
   height: 100vh;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   margin: auto;
 
 }
@@ -17,13 +17,11 @@ main {
   display: flex;
   flex-direction: column;
   width: 60vw;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
 }
 
 h1 {
   font-size: 50px;
-  
-
 }
 
 h3 {
@@ -38,7 +36,7 @@ p {
   display: flex;
   text-align: center;
   justify-content: center;
-
+  
 }
 
 .classic-box {
@@ -47,6 +45,7 @@ p {
   width: 20vw;
   padding-top: 35px;
   border: 2px double greenyellow;
+  gap: 2px;
   
 }
 
@@ -58,7 +57,7 @@ p {
 
 .difficult-box {
   margin-top: 5vh;
-  height: 19vw;
+  height: 28vw;
   width: 20vw;
   padding-top: 35px;
   border: 2px double greenyellow
@@ -105,13 +104,11 @@ p {
   align-items: center;
   width: 60vw;
   height: 30vw;
+  text-align: center;
 }
 
 
-.choose-fighter-container {
-  
-  flex: 0 0 auto;
-}
+
 
 
 .hidden {

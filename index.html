@@ -11,7 +11,7 @@
     <header>
       <h1>Rock, Paper, Scissors</h1>
     </header>
-    <container class="choose-your-game hidden">
+    <container class="choose-your-game">
       <h3>..CHOOSE YOUR GAME..</h3>
       <div class="classic-mode">
         <box class="classic-box">
@@ -34,10 +34,13 @@
         </box>
       </div>
     </container>
+    
+    
     <div class="player-card">
       <box class="player-box">
         <h3>[HUMAN]</h3>
         <P id="player-wins-total">WINS: 0</P>
+        <button class="change-game-button">CHANGE GAME?</button>
       </box>
     </div>
     <div class="computer-card">
@@ -48,10 +51,9 @@
     </div>
     
     
-    <div class="choose-fighter-container">
-      <h1>[CHOOSE YOUR FIGHTER]</h1>
-    </div>  
-    <container class="classic-mode-view hidden">
+    <div class="classic-mode-sheet hidden">
+      <h1 id="dynamic-message-classic">[CHOOSE YOUR FIGHTER]</h1>
+    <container class="classic-mode-view"> 
       <div class="rock-div">
         <img class="rock-button" src="assets/diamond.svg" alt="rock image">
         <p>[ROCK]</p>
@@ -65,9 +67,11 @@
         <p>[SCISSORS]</p>
       </div>
     </container>
+    </div>
     
     
-    
+    <div class="difficult-mode-sheet hidden">
+      <h1 id="dynamic-message-difficult">[CHOOSE YOUR FIGHTER]</h1> 
     <container class="classic-mode-view">
       <div class="rock-div">
         <img class="rock-button" src="assets/diamond.svg" alt="rock image">
@@ -90,6 +94,7 @@
         <p>[WIND]</p>
       </div>
     </container>
+    </div>
 
     </main>
   <script type="text/javascript" src="main.js"></script>

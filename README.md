@@ -61,4 +61,3 @@ A timeout is used after a completed round to reset the board.
 This game is played by one user against a computer. The computer player should be another 
 player object with the name of ‘computer’ and have the ability to make a random choice.
 
-You’ll need to make two versions of Rock, Paper, Scissors - “classic” and some variation. The variation should include more than 3 options (the one in the video has 5). You can invent your own variation, or do some research on variations here. Make sure you communicate the rules to your user!
