@@ -1,6 +1,3 @@
-.hidden {
-  display: none;
-}
 
 
 body {
@@ -34,7 +31,7 @@ h3 {
 }
 
 p {
-  font-size: 18px
+  font-size: 25px
 }
 
 .classic-mode {
@@ -99,3 +96,25 @@ p {
 #computer-wins-total {
   font-size: 30px;
 }
+
+.classic-mode-view {
+  display: flex;
+  justify-content: center;
+  gap: 3vw;
+  border: 2px solid yellowgreen;
+  align-items: center;
+  width: 60vw;
+  height: 30vw;
+}
+
+
+.choose-fighter-container {
+  
+  flex: 0 0 auto;
+}
+
+
+.hidden {
+  display: none;
+}
+
