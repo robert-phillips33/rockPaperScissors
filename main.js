@@ -106,26 +106,37 @@ function createSettings() {
   return gameSettings;
 };
 
-function decideWinner() {
+function decideWinnerClassic() {
   var computerChoice = getRandomIndex(classicGameChoices);
   playGame.computerSelection = classicGameChoices[computerChoice]
-
-  console.log(playGame.computerSelection)
-  console.log(playGame.humanSelection = "rock")
-
+  
   if (playGame.humanSelection === playGame.computerSelection) {
     playGame.gameResult = "It's a tie..";
   } else if (
-    playGame.humanSelection === "rock" && playGame.computerSelection === "scissors" ||
-    playGame.humanSelection === "scissors" && playGame.computerSelection === "paper" ||
-    playGame.humanSelection === "paper" && playGame.computerSelection === "rock") {
+    (playGame.humanSelection === "rock" && playGame.computerSelection === "scissors") ||
+    (playGame.humanSelection === "scissors" && playGame.computerSelection === "paper") ||
+    (playGame.humanSelection === "paper" && playGame.computerSelection === "rock")) {
       
     playGame.gameResult = "Human has won this round..";
-    human.wins++
+    human.wins++;
   } else {
     playGame.gameResult = "Computer wins again..";
-    computer.wins++
+    computer.wins++;
   };
-};
+    // console.log(playGame.humanSelection);
+    // console.log(playGame.computerSelection);
+    // console.log(playGame.gameResult);
+    // console.log(human.wins);
+    // console.log(computer.wins);
+  };
 
-console.log(decideWinner())
+  // when a user clicks an game object, display their object / computer object and game outcome
+
+  function renderDomClassic() {
+    
+  }
+
+
+  
+
+
