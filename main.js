@@ -1,24 +1,22 @@
-// * DATA * //
+// * DATA AND GLOBALS * //
 
 
 var classicGameChoices = [
-  "Rock", "Paper", "Scissors"
+  "rock", "paper", "scissors"
 ];
 
 var difficultGameChoices = [
-  "Rock", "Paper", "Scissors",
-  "Wind", "Water"
+  "rock", "paper", "scissors",
+  "wind", "water"
 ];
 
-var player1 = {
-  name: "Human",
-  wins: 0
-};
+var playGame = createGame();
+var gameSettings = createSettings();
+var human = createPlayer();
+var computer = createComputer();
 
-var player2 = {
-  name: "Computer",
-  wins: 0
-};
+
+
 
 
 // * QUERY SELECTORS - BUTTONS * //
@@ -53,10 +51,9 @@ playDifficultGameButton.addEventListener("click", renderDifficultGameBoard);
 // * FUNCTIONS * // 
 
 
-function generateComputerChoice() {
-  return classicGameChoices[Math.floor(Math.random() * classicGameChoices.length)];
-};
-
+function getRandomIndex(classicGameChoices) {
+  return Math.floor(Math.random() * classicGameChoices.length)
+}
 
 function renderClassicGameBoard() {
   chooseYourGameScreen.classList.add("hidden");
@@ -77,7 +74,53 @@ function renderChooseGameScreen() {
   changeGameButton.classList.add("hidden");
 };
 
+function createPlayer() {
+  var human = {
+    player: "Human",
+    wins: 0
+  }
+  return human;
+};
 
-  
+function createComputer() {
+  var computer = {
+    player: "Computer",
+    wins: 0
+  }
+  return computer;
+};
 
+function createGame() {
+  var playGame = {
+    humanSelection: null,
+    computerSelection: null,
+    gameResult: null
+  }
+  return playGame;
+};
 
+function createSettings() {
+  var gameSettings = {
+    currentSelection: null
+  }
+  return gameSettings;
+};
+
+function decideWinner() {
+  var computerChoice = getRandomIndex(classicGameChoices);
+  playGame.computerSelection = classicGameChoices[computerChoice]
+
+  if (playGame.humanSelection === playGame.computerSelection) {
+    playGame.gameResult = "It's a tie..";
+  } else if (
+    playGame.humanSelection === "rock" && playGame.computerSelection === "scissors" ||
+    playGame.humanSelection === "scissors" && playGame.computerSelection === "paper" ||
+    playGame.humanSelection === "paper" && playGame.computerSelection === "rock") {
+      
+    playGame.gameResult = "Human has won this round..";
+    human.wins++
+  } else {
+    playGame.gameResult = "Computer wins again..";
+    computer.wins++
+  };
+};
