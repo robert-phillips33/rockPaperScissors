@@ -110,6 +110,9 @@ function decideWinner() {
   var computerChoice = getRandomIndex(classicGameChoices);
   playGame.computerSelection = classicGameChoices[computerChoice]
 
+  console.log(playGame.computerSelection)
+  console.log(playGame.humanSelection = "rock")
+
   if (playGame.humanSelection === playGame.computerSelection) {
     playGame.gameResult = "It's a tie..";
   } else if (
@@ -124,3 +127,5 @@ function decideWinner() {
     computer.wins++
   };
 };
+
+console.log(decideWinner())
