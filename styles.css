@@ -1,5 +1,4 @@
 
-
 body {
   display: flex;
   text-align: center;
@@ -73,7 +72,7 @@ p {
   position: absolute;
   top: 5vw;
   left: 4vw;
-  height: 10vw;
+  height: 18vw;
   width: 11vw;
   
 }
@@ -87,7 +86,7 @@ p {
   position: absolute;
   top: 5vw;
   right: 4vw;
-  height: 10vw;
+  height: 18vw;
   width: 11vw;
   
 }
@@ -106,10 +105,6 @@ p {
   height: 30vw;
   text-align: center;
 }
-
-
-
-
 
 .hidden {
   display: none;
