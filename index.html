@@ -9,7 +9,7 @@
 <body>
   <main>
     <header>
-      <h1>Rock, Paper, Scissors</h1>
+      <h1>[ROCK PAPER SCISSORS]</h1>
     </header>
     <container class="choose-your-game">
       <h3>..CHOOSE YOUR GAME..</h3>
@@ -17,11 +17,13 @@
         <box class="classic-box">
           <button class="classic-mode-button">PLAY</button>
           <h3>..CLASSIC MODE..</h3>
+
           <P>ROCK > SCISSORS</P>
           <P>PAPER > ROCK</P>
           <P>SCISSORS > PAPER</P>
         </box>
       </div>
+
       <div class="difficult-mode">
         <box class="difficult-box">
           <button class="difficult-mode-button">PLAY</button>
@@ -34,8 +36,7 @@
         </box>
       </div>
     </container>
-    
-    
+
     <div class="player-card">
       <box class="player-box">
         <h3>[HUMAN]</h3>
@@ -51,51 +52,35 @@
         <P id="computer-wins-total">WINS: 0</P>
       </box>
     </div>
-    
-    
+
     <div class="classic-mode-sheet hidden">
-      <h1 id="dynamic-message-classic">[CHOOSE YOUR FIGHTER]</h1>
-    <container class="classic-mode-view"> 
-      <div class="rock-div">
-        <img class="rock-button" src="assets/diamond.svg" alt="rock image">
-        <p>[ROCK]</p>
-      </div>
-      <div class="paper-div">
-        <img class="paper-button" src="assets/paper.svg" alt="rock image">
-        <p>[PAPER]</p>
-      </div>
-      <div class="scissors-div">
-        <img class="scissors-button" src="assets/scissors.svg" alt="rock image">
-        <p>[SCISSORS]</p>
-      </div>
-    </container>
-    </div>
-    
-    
-    <div class="difficult-mode-sheet hidden">
-      <h1 id="dynamic-message-difficult">[CHOOSE YOUR FIGHTER]</h1> 
-    <container class="classic-mode-view">
-      <div class="rock-div">
-        <img class="rock-button" src="assets/diamond.svg" alt="rock image">
-        <p>[ROCK]</p>
-      </div>
-      <div class="paper-div">
-        <img class="paper-button" src="assets/paper.svg" alt="paper image">
-        <p>[PAPER]</p>
-      </div>
-      <div class="scissors-div">
-        <img class="scissors-button" src="assets/scissors.svg" alt="scissors image">
-        <p>[SCISSORS]</p>
-      </div>
-      <div class="water-div">
-        <img class="water-button" src="assets/water.svg" alt="water image">
-        <p>[WATER]</p>
-      </div>
-      <div class="wind-div">
-        <img class="wind-button" src="assets/wind.svg" alt="wind image">
-        <p>[WIND]</p>
-      </div>
-    </container>
+      <h1 id="dynamic-message">[CHOOSE YOUR FIGHTER]</h1>
+
+      <container class="classic-mode-view">
+        <div class="rock-div">
+          <img class="rock-button game-button" src="assets/diamond.svg" alt="rock image">
+          <p>[ROCK]</p>
+        </div>
+        <div class="paper-div">
+          <img class="paper-button game-button" src="assets/paper.svg" alt="rock image">
+          <p>[PAPER]</p>
+        </div>
+        <div class="scissors-div">
+          <img class="scissors-button game-button" src="assets/scissors.svg" alt="rock image">
+          <p>[SCISSORS]</p>
+        </div>
+
+        <div class="difficult-game-buttons hidden">
+          <div class="water-div">
+            <img class="water-button game-button" src="assets/water.svg" alt="water image">
+            <p>[WATER]</p>
+          </div>
+          <div class="wind-div">
+            <img class="wind-button game-button" src="assets/wind.svg" alt="wind image">
+            <p>[WIND]</p>
+          </div>
+        </div>
+      </container>
     </div>
 
   </main>

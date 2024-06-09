@@ -1,9 +1,9 @@
-
 body {
   display: flex;
   text-align: center;
   justify-content: center;
   font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Arial'; */
   background-color: black;
   color: greenyellow;
   height: 100vh;
@@ -35,17 +35,16 @@ p {
   display: flex;
   text-align: center;
   justify-content: center;
-  
+
 }
 
 .classic-box {
   margin-top: 1vh;
-  height: 12vw;
   width: 20vw;
   padding-top: 35px;
   border: 2px double greenyellow;
   gap: 2px;
-  
+
 }
 
 .difficult-mode {
@@ -56,15 +55,9 @@ p {
 
 .difficult-box {
   margin-top: 5vh;
-  height: 28vw;
   width: 20vw;
   padding-top: 35px;
   border: 2px double greenyellow
-}
-
-
-.player-card {
-  
 }
 
 .player-box {
@@ -72,9 +65,8 @@ p {
   position: absolute;
   top: 5vw;
   left: 4vw;
-  height: 18vw;
-  width: 11vw;
-  
+  width: 200px;
+  padding: 10px;
 }
 
 #player-wins-total {
@@ -86,9 +78,8 @@ p {
   position: absolute;
   top: 5vw;
   right: 4vw;
-  height: 18vw;
-  width: 11vw;
-  
+  width: 200px;
+  padding: 10px;
 }
 
 #computer-wins-total {
@@ -110,3 +101,15 @@ p {
   display: none;
 }
 
+.disabled {
+  opacity: 0.15;
+}
+
+.game-button {
+  cursor: pointer;
+  transition: transform 1s ease-out;
+}
+
+.game-button:hover {
+  transform: rotate(360deg);
+}
