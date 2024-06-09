@@ -171,7 +171,7 @@ function decideWinner() {
   playGame.computerSelection = computerChoices[computerChoice]
 
   if (playGame.humanSelection === playGame.computerSelection) {
-    playGame.gameResult = "It's a tie..";
+    playGame.gameResult = `BOTH PLAYERS CHOSE ${playGame.humanSelection.toUpperCase()}, TIE GAME`;
   } else if (
     (playGame.humanSelection === "rock" && (playGame.computerSelection === "scissors" || playGame.computerSelection === "water")) ||
     (playGame.humanSelection === "paper" && (playGame.computerSelection === "rock" || playGame.computerSelection === "wind")) ||
@@ -179,10 +179,10 @@ function decideWinner() {
     (playGame.humanSelection === "wind" && (playGame.computerSelection === "paper" || playGame.computerSelection === "rock")) ||
     (playGame.humanSelection === "water" && (playGame.computerSelection === "rock" || playGame.computerSelection === "scissors"))
   ) {
-    playGame.gameResult = "Human has won this round..";
+    playGame.gameResult = "HUMAN WINS..";
     human.wins++;
   } else {
-    playGame.gameResult = "Computer wins again..";
+    playGame.gameResult = "COMPUTER WINS..";
     computer.wins++;
   };
 
@@ -195,14 +195,14 @@ function decideWinner() {
   var allGameButtons = document.querySelectorAll(".game-button");
   for (var i = 0; i < allGameButtons.length; i++) {
     var gameButton = allGameButtons[i];
-    gameButton.classList.add('disabled');
+    gameButton.classList.add("disabled");
   }
 
   // Get the selected game button classes
   var humanSelectedClassName = `${playGame.humanSelection}-button`;
   var computerSelectedClassName = `${playGame.computerSelection}-button`;
-  document.querySelector(`.${humanSelectedClassName}`).classList.remove('disabled');
-  document.querySelector(`.${computerSelectedClassName}`).classList.remove('disabled');
+  document.querySelector(`.${humanSelectedClassName}`).classList.remove("disabled");
+  document.querySelector(`.${computerSelectedClassName}`).classList.remove("disabled");
 
   // After 5 seconds, reset the game
   setTimeout(function () {
@@ -210,10 +210,11 @@ function decideWinner() {
       gameButton.classList.remove("disabled");
     });
     dynamicMessage.innerText = "CHOOSE YOUR FIGHTER";
-  }, 3000);
+  }, 5000);
 
   console.log(playGame);
 };
+
 
 // Add click event listener to all rockButtons (elements with .rock-button class)
 for (var i = 0; i < rockButtons.length; i++) {
@@ -266,4 +267,6 @@ function waterButtonClickHandler(event) {
 function windButtonClickHandler(event) {
   playGame.humanSelection = "wind";
   decideWinner();
-}
+};
+
+
