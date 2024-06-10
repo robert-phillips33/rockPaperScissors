@@ -3,11 +3,9 @@ body {
   text-align: center;
   justify-content: center;
   font-family: 'Courier New', Courier, monospace;
-  /* font-family: 'Arial'; */
   background-color: black;
   color: greenyellow;
   height: 100vh;
-  /* border: 2px solid red; */
   margin: auto;
 
 }
@@ -16,7 +14,6 @@ main {
   display: flex;
   flex-direction: column;
   width: 60vw;
-  /* border: 2px solid blue; */
 }
 
 h1 {
@@ -69,6 +66,35 @@ p {
   padding: 10px;
 }
 
+.change-game-button {
+  background-color: greenyellow;
+  color: black;
+  cursor: pointer;
+  transition: transform 1.2s ease-out;
+  width: 120px;
+  border: none;
+}
+
+.change-game-button:hover {
+  transform: scale(1.075);
+}
+
+.playbuttons {
+  background-color: greenyellow;
+  color: black;
+  cursor: pointer;
+  transition: transform 1.2s ease-out;
+  width: 90px;
+  border: none;
+}
+
+.select-none {
+  user-select: none;
+}
+.playbuttons:hover {
+  transform: scale(1.2);
+}
+
 #player-wins-total {
   font-size: 30px;
 }
@@ -97,19 +123,27 @@ p {
   text-align: center;
 }
 
+.difficult-game-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 3vw;
+  align-items: center;
+}
+
 .hidden {
   display: none;
 }
 
 .disabled {
-  opacity: 0.25;
+  display: none;
 }
 
 .game-button {
   cursor: pointer;
-  transition: transform 1s ease-out;
+  transition: transform 1.75s ease-out;
 }
 
 .game-button:hover {
   transform: rotate(360deg);
 }
+
