@@ -1,6 +1,5 @@
 // * DATA AND GLOBALS * //
 
-
 var classicGameChoices = [
   "rock", "paper", "scissors"
 ];
@@ -15,6 +14,7 @@ var human = createPlayer();
 var computer = createComputer();
 
 // * QUERY SELECTORS - BUTTONS * //
+
 var changeGameButton = document.querySelector(".change-game-button");
 var playClassicGameButton = document.querySelector(".classic-mode-button");
 var playDifficultGameButton = document.querySelector(".difficult-mode-button");
@@ -23,6 +23,10 @@ var paperButtons = document.querySelectorAll(".paper-button");
 var scissorsButtons = document.querySelectorAll(".scissors-button");
 var windButtons = document.querySelectorAll(".wind-button");
 var waterButtons = document.querySelectorAll(".water-button");
+var playerWinsTotal = document.querySelector("#player-wins-total");
+var computerWinsTotal = document.querySelector("#computer-wins-total");
+var difficultGameButtons = document.querySelector(".difficult-game-buttons");
+var dynamicMessage = document.querySelector("#dynamic-message");
 
 // * QUERY SELECTORS - GAME MODES * //
 var chooseYourGameScreen = document.querySelector(".choose-your-game");
@@ -84,34 +88,9 @@ function createGame() {
   return playGame;
 };
 
-// * QUERY SELECTORS - BUTTONS * //
-var changeGameButton = document.querySelector(".change-game-button");
-var playClassicGameButton = document.querySelector(".classic-mode-button");
-var playDifficultGameButton = document.querySelector(".difficult-mode-button");
-var rockButton = document.querySelector(".rock-button");
-var paperButton = document.querySelector(".paper-button");
-var scissorsButton = document.querySelector(".scissors-button");
-var windButton = document.querySelector(".wind-button");
-var waterButton = document.querySelector(".water-button");
-var playerWinsTotal = document.querySelector("#player-wins-total");
-var computerWinsTotal = document.querySelector("#computer-wins-total");
-var difficultGameButtons = document.querySelector(".difficult-game-buttons");
-var dynamicMessage = document.querySelector("#dynamic-message");
-
-// * QUERY SELECTORS - GAME MODES * //
-var chooseYourGameScreen = document.querySelector(".choose-your-game");
-var classicGameScreen = document.querySelector(".classic-mode-sheet");
-var difficultGameScreen = document.querySelector(".difficult-mode-sheet");
-
-// * EVENT LISTENERS * //
-changeGameButton.addEventListener("click", renderChooseGameScreen);
-playClassicGameButton.addEventListener("click", renderClassicGameBoard);
-playDifficultGameButton.addEventListener("click", renderDifficultGameBoard);
-
-// * FUNCTIONS * // 
 function getRandomIndex(classicGameChoices) {
   return Math.floor(Math.random() * classicGameChoices.length)
-}
+};
 
 function renderClassicGameBoard() {
   chooseYourGameScreen.classList.add("hidden");
@@ -173,11 +152,11 @@ function decideWinner() {
   if (playGame.humanSelection === playGame.computerSelection) {
     playGame.gameResult = `BOTH PLAYERS CHOSE ${playGame.humanSelection.toUpperCase()}, TIE GAME`;
   } else if (
-    (playGame.humanSelection === "rock" && (playGame.computerSelection === "scissors" || playGame.computerSelection === "water")) ||
-    (playGame.humanSelection === "paper" && (playGame.computerSelection === "rock" || playGame.computerSelection === "wind")) ||
+    (playGame.humanSelection === "rock" && (playGame.computerSelection === "scissors" || playGame.computerSelection === "wind")) ||
+    (playGame.humanSelection === "paper" && (playGame.computerSelection === "rock" || playGame.computerSelection === "water")) ||
     (playGame.humanSelection === "scissors" && (playGame.computerSelection === "paper" || playGame.computerSelection === "wind")) ||
-    (playGame.humanSelection === "wind" && (playGame.computerSelection === "paper" || playGame.computerSelection === "rock")) ||
-    (playGame.humanSelection === "water" && (playGame.computerSelection === "rock" || playGame.computerSelection === "scissors"))
+    (playGame.humanSelection === "wind" && (playGame.computerSelection === "paper" || playGame.computerSelection === "water")) ||
+    (playGame.humanSelection === "water" && (playGame.computerSelection === "scissors" || playGame.computerSelection === "rock"))
   ) {
     playGame.gameResult = "HUMAN WINS..";
     human.wins++;
@@ -204,13 +183,13 @@ function decideWinner() {
   document.querySelector(`.${humanSelectedClassName}`).classList.remove("disabled");
   document.querySelector(`.${computerSelectedClassName}`).classList.remove("disabled");
 
-  // After 5 seconds, reset the game
+  // After 2.5 seconds, reset the game
   setTimeout(function () {
     allGameButtons.forEach(gameButton => {
       gameButton.classList.remove("disabled");
     });
     dynamicMessage.innerText = "CHOOSE YOUR FIGHTER";
-  }, 5000);
+  }, 2000);
 
   console.log(playGame);
 };

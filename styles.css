@@ -69,6 +69,32 @@ p {
   padding: 10px;
 }
 
+.change-game-button {
+  background-color: greenyellow;
+  color: black;
+  cursor: pointer;
+  transition: transform 1.2s ease-out;
+  width: 120px;
+  border: none;
+}
+
+.change-game-button:hover {
+  transform: scale(1.075);
+}
+
+.playbuttons {
+  background-color: greenyellow;
+  color: black;
+  cursor: pointer;
+  transition: transform 1.2s ease-out;
+  width: 90px;
+  border: none;
+}
+
+.playbuttons:hover {
+  transform: scale(1.2);
+}
+
 #player-wins-total {
   font-size: 30px;
 }
@@ -107,9 +133,10 @@ p {
 
 .game-button {
   cursor: pointer;
-  transition: transform 1s ease-out;
+  transition: transform 1.75s ease-out;
 }
 
 .game-button:hover {
   transform: rotate(360deg);
 }
+
