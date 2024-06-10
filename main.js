@@ -27,39 +27,49 @@ var playerWinsTotal = document.querySelector("#player-wins-total");
 var computerWinsTotal = document.querySelector("#computer-wins-total");
 var difficultGameButtons = document.querySelector(".difficult-game-buttons");
 var dynamicMessage = document.querySelector("#dynamic-message");
+var allGameButtons = document.querySelectorAll(".game-button");
 
 // * QUERY SELECTORS - GAME MODES * //
+
 var chooseYourGameScreen = document.querySelector(".choose-your-game");
 var classicGameScreen = document.querySelector(".classic-mode-sheet");
 var difficultGameScreen = document.querySelector(".difficult-mode-sheet");
 
 // * EVENT LISTENERS * //
+
 changeGameButton.addEventListener("click", renderChooseGameScreen);
 playClassicGameButton.addEventListener("click", renderClassicGameBoard);
 playDifficultGameButton.addEventListener("click", renderDifficultGameBoard);
 
 // * FUNCTIONS * // 
+
+for (var i = 0; i < rockButtons.length; i++) {
+  var rockButton = rockButtons[i];
+  rockButton.addEventListener("click", rockButtonClickHandler);
+};
+
+for (var i = 0; i < paperButtons.length; i++) {
+  var paperButton = paperButtons[i];
+  paperButton.addEventListener("click", paperButtonClickHandler);
+};
+
+for (var i = 0; i < scissorsButtons.length; i++) {
+  var scissorsButton = scissorsButtons[i];
+  scissorsButton.addEventListener("click", scissorsButtonClickHandler);
+};
+
+for (var i = 0; i < waterButtons.length; i++) {
+  var waterButton = waterButtons[i];
+  waterButton.addEventListener("click", waterButtonClickHandler);
+};
+
+for (var i = 0; i < windButtons.length; i++) {
+  var windButton = windButtons[i];
+  windButton.addEventListener("click", windButtonClickHandler);
+};
+
 function getRandomIndex(classicGameChoices) {
   return Math.floor(Math.random() * classicGameChoices.length)
-}
-
-function renderClassicGameBoard() {
-  chooseYourGameScreen.classList.add("hidden");
-  classicGameScreen.classList.remove("hidden");
-  changeGameButton.classList.remove("hidden");
-};
-
-function renderDifficultGameBoard() {
-  chooseYourGameScreen.classList.add("hidden");
-  difficultGameScreen.classList.remove("hidden");
-  changeGameButton.classList.remove("hidden");
-};
-
-function renderChooseGameScreen() {
-  chooseYourGameScreen.classList.remove("hidden");
-  difficultGameScreen.classList.add("hidden");
-  classicGameScreen.classList.add("hidden");
-  changeGameButton.classList.add("hidden");
 };
 
 function createPlayer() {
@@ -86,10 +96,6 @@ function createGame() {
     gameType: null
   }
   return playGame;
-};
-
-function getRandomIndex(classicGameChoices) {
-  return Math.floor(Math.random() * classicGameChoices.length)
 };
 
 function renderClassicGameBoard() {
@@ -114,34 +120,25 @@ function renderChooseGameScreen() {
   changeGameButton.classList.add("hidden");
 };
 
-function createPlayer() {
-  var human = {
-    player: "Human",
-    wins: 0
-  }
-  return human;
+function displayGameResults() {
+  computerWinsTotal.innerText = `WINS: ${computer.wins}`;
+  playerWinsTotal.innerText = `WINS: ${human.wins}`;
+  dynamicMessage.innerText = `${playGame.gameResult}`;
 };
 
-function createComputer() {
-  var computer = {
-    player: "Computer",
-    wins: 0
-  }
-  return computer;
-};
-
-function createGame() {
-  var playGame = {
-    humanSelection: null,
-    computerSelection: null,
-    gameResult: null,
-    gameType: null
-  }
-  return playGame;
+function hideGameButtons() {
+  var allGameButtons = document.querySelectorAll(".game-button");
+  for (var i = 0; i < allGameButtons.length; i++) {
+    var gameButton = allGameButtons[i];
+    gameButton.classList.add("disabled");
+    var humanSelectedClassName = `${playGame.humanSelection}-button`;
+    var computerSelectedClassName = `${playGame.computerSelection}-button`;
+    document.querySelector(`.${humanSelectedClassName}`).classList.remove("disabled");
+    document.querySelector(`.${computerSelectedClassName}`).classList.remove("disabled");
+  };
 };
 
 function decideWinner() {
-  // Dynamically set computer choices according to gameType
   var computerChoices = classicGameChoices;
   if (playGame.gameType === "difficult") {
     computerChoices = difficultGameChoices;
@@ -165,62 +162,19 @@ function decideWinner() {
     computer.wins++;
   };
 
-  // Set text content
-  computerWinsTotal.innerText = `WINS: ${computer.wins}`;
-  playerWinsTotal.innerText = `WINS: ${human.wins}`;
-  dynamicMessage.innerText = `${playGame.gameResult}`;
+  displayGameResults();
+  hideGameButtons();
 
-  // Hide all game buttons
-  var allGameButtons = document.querySelectorAll(".game-button");
-  for (var i = 0; i < allGameButtons.length; i++) {
-    var gameButton = allGameButtons[i];
-    gameButton.classList.add("disabled");
-  }
+  document.querySelector(".classic-mode-view").style.pointerEvents = "none";
 
-  // Get the selected game button classes
-  var humanSelectedClassName = `${playGame.humanSelection}-button`;
-  var computerSelectedClassName = `${playGame.computerSelection}-button`;
-  document.querySelector(`.${humanSelectedClassName}`).classList.remove("disabled");
-  document.querySelector(`.${computerSelectedClassName}`).classList.remove("disabled");
-
-  // After 2.5 seconds, reset the game
   setTimeout(function () {
-    allGameButtons.forEach(gameButton => {
+    for (var i = 0; i < allGameButtons.length; i++) {
+      var gameButton = allGameButtons[i];
       gameButton.classList.remove("disabled");
-    });
+    }
     dynamicMessage.innerText = "CHOOSE YOUR FIGHTER";
-  }, 2000);
-
-  console.log(playGame);
-};
-
-
-// Add click event listener to all rockButtons (elements with .rock-button class)
-for (var i = 0; i < rockButtons.length; i++) {
-  var rockButton = rockButtons[i];
-  rockButton.addEventListener("click", rockButtonClickHandler);
-};
-
-// Add click event listener to all paperButtons (elements with .paper-button class)
-for (var i = 0; i < paperButtons.length; i++) {
-  var paperButton = paperButtons[i];
-  paperButton.addEventListener("click", paperButtonClickHandler);
-};
-
-// Add click event listener to all scissorsButtons (elements with .scissor-button class)
-for (var i = 0; i < scissorsButtons.length; i++) {
-  var scissorsButton = scissorsButtons[i];
-  scissorsButton.addEventListener("click", scissorsButtonClickHandler);
-};
-
-for (var i = 0; i < waterButtons.length; i++) {
-  var waterButton = waterButtons[i];
-  waterButton.addEventListener("click", waterButtonClickHandler);
-};
-
-for (var i = 0; i < windButtons.length; i++) {
-  var windButton = windButtons[i];
-  windButton.addEventListener("click", windButtonClickHandler);
+    document.querySelector(".classic-mode-view").style.pointerEvents = "auto";
+  }, 2500);
 };
 
 function rockButtonClickHandler(event) {
