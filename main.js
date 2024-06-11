@@ -12,7 +12,6 @@ var difficultGameChoices = [
 var playGame = createGame();
 var human = createPlayer();
 var computer = createComputer();
-var clonedNode;
 
 // * QUERY SELECTORS - BUTTONS * //
 
@@ -54,7 +53,7 @@ windButton.addEventListener("click", windButtonClickHandler);
 // * FUNCTIONS * // 
 
 function getRandomIndex(classicGameChoices) {
-  return Math.floor(Math.random() * classicGameChoices.length)
+  return Math.floor(Math.random() * classicGameChoices.length);
 };
 
 function rockButtonClickHandler(event) {
@@ -145,22 +144,23 @@ function hideGameButtons() {
     document.querySelector(`.${humanSelectedClassName}`).classList.remove("disabled");
     document.querySelector(`.${computerSelectedClassName}`).classList.remove("disabled");
   };
+  
   if (playGame.gameResult.endsWith("TIE GAME")) {
     var newElement = document.createElement("img");
     newElement.classList.add(`${playGame.humanSelection}-button`);
     newElement.src = `assets/${playGame.humanSelection}.svg`;
     newElement.alt = `${playGame.humanSelection}`;
     newElement.id = "clone";
-    
+
     classicGameContainer.appendChild(newElement);
   };
 };
 
 function resetGame() {
   document.querySelector(".classic-mode-view").style.pointerEvents = "none";
-  
+
   setTimeout(function () {
-    
+
     allGameButtons = document.querySelectorAll(".game-button");
     var clone = document.querySelector("#clone");
     if (clone) {
@@ -173,7 +173,7 @@ function resetGame() {
 
     dynamicMessage.innerText = "CHOOSE YOUR FIGHTER";
     document.querySelector(".classic-mode-view").style.pointerEvents = "auto";
-  }, 2800);
+  }, 3000);
 };
 
 function decideWinner() {
