@@ -1,3 +1,5 @@
+# [Click here to try out rockPaperScissors!](https://robert-phillips33.github.io/rockPaperScissors/)
+
 
 ## Abstract
 - Classic and "difficult mode" rock, paper, scissors! Players select their desired game item by clicking the svg button of their choosing, at which point the computer will randomly generate an item to face off against the player. After the result of the game, player and computer scores are incremeted up depending on the winning side.
@@ -7,8 +9,6 @@
 
 ## Preview of App
 ![Rock Paper Scissors Screenshot](https://i.ibb.co/TMrKX3N/Screenshot-2024-06-10-at-4-34-59-PM.png)
-
-## Live link to app below
 
 ## Learning Goals
 - Above all, continuing to explore the ways in which I can create dynamic content through the manipulation of DOM elements using JavaScript. Every project presents new challenges, and I feel a bit stronger in my foundations each time I finish one.
