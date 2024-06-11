@@ -18,58 +18,42 @@ var computer = createComputer();
 var changeGameButton = document.querySelector(".change-game-button");
 var playClassicGameButton = document.querySelector(".classic-mode-button");
 var playDifficultGameButton = document.querySelector(".difficult-mode-button");
-var rockButtons = document.querySelectorAll(".rock-button");
-var paperButtons = document.querySelectorAll(".paper-button");
-var scissorsButtons = document.querySelectorAll(".scissors-button");
-var windButtons = document.querySelectorAll(".wind-button");
-var waterButtons = document.querySelectorAll(".water-button");
+var rockButton = document.querySelector(".rock-button");
+var paperButton = document.querySelector(".paper-button");
+var scissorsButton = document.querySelector(".scissors-button");
+var windButton = document.querySelector(".wind-button");
+var waterButton = document.querySelector(".water-button");
 var playerWinsTotal = document.querySelector("#player-wins-total");
 var computerWinsTotal = document.querySelector("#computer-wins-total");
 var difficultGameButtons = document.querySelector(".difficult-game-buttons");
 var dynamicMessage = document.querySelector("#dynamic-message");
 var allGameButtons = document.querySelectorAll(".game-button");
 
+
+
 // * QUERY SELECTORS - GAME MODES * //
 
 var chooseYourGameScreen = document.querySelector(".choose-your-game");
 var classicGameScreen = document.querySelector(".classic-mode-sheet");
 var difficultGameScreen = document.querySelector(".difficult-mode-sheet");
+var classicGameContainer = document.querySelector(".classic-mode-view");
+
 
 // * EVENT LISTENERS * //
 
 changeGameButton.addEventListener("click", renderChooseGameScreen);
 playClassicGameButton.addEventListener("click", renderClassicGameBoard);
 playDifficultGameButton.addEventListener("click", renderDifficultGameBoard);
+rockButton.addEventListener("click", rockButtonClickHandler);
+paperButton.addEventListener("click", paperButtonClickHandler);
+scissorsButton.addEventListener("click", scissorsButtonClickHandler);
+waterButton.addEventListener("click", waterButtonClickHandler);
+windButton.addEventListener("click", windButtonClickHandler);
 
 // * FUNCTIONS * // 
 
-for (var i = 0; i < rockButtons.length; i++) {
-  var rockButton = rockButtons[i];
-  rockButton.addEventListener("click", rockButtonClickHandler);
-};
-
-for (var i = 0; i < paperButtons.length; i++) {
-  var paperButton = paperButtons[i];
-  paperButton.addEventListener("click", paperButtonClickHandler);
-};
-
-for (var i = 0; i < scissorsButtons.length; i++) {
-  var scissorsButton = scissorsButtons[i];
-  scissorsButton.addEventListener("click", scissorsButtonClickHandler);
-};
-
-for (var i = 0; i < waterButtons.length; i++) {
-  var waterButton = waterButtons[i];
-  waterButton.addEventListener("click", waterButtonClickHandler);
-};
-
-for (var i = 0; i < windButtons.length; i++) {
-  var windButton = windButtons[i];
-  windButton.addEventListener("click", windButtonClickHandler);
-};
-
 function getRandomIndex(classicGameChoices) {
-  return Math.floor(Math.random() * classicGameChoices.length)
+  return Math.floor(Math.random() * classicGameChoices.length);
 };
 
 function rockButtonClickHandler(event) {
@@ -152,7 +136,6 @@ function displayGameResults() {
 };
 
 function hideGameButtons() {
-  var allGameButtons = document.querySelectorAll(".game-button");
   for (var i = 0; i < allGameButtons.length; i++) {
     var gameButton = allGameButtons[i];
     gameButton.classList.add("disabled");
@@ -161,19 +144,36 @@ function hideGameButtons() {
     document.querySelector(`.${humanSelectedClassName}`).classList.remove("disabled");
     document.querySelector(`.${computerSelectedClassName}`).classList.remove("disabled");
   };
+  
+  if (playGame.gameResult.endsWith("TIE GAME")) {
+    var newElement = document.createElement("img");
+    newElement.classList.add(`${playGame.humanSelection}-button`);
+    newElement.src = `assets/${playGame.humanSelection}.svg`;
+    newElement.alt = `${playGame.humanSelection}`;
+    newElement.id = "clone";
+
+    classicGameContainer.appendChild(newElement);
+  };
 };
 
 function resetGame() {
   document.querySelector(".classic-mode-view").style.pointerEvents = "none";
 
   setTimeout(function () {
+
+    allGameButtons = document.querySelectorAll(".game-button");
+    var clone = document.querySelector("#clone");
+    if (clone) {
+      classicGameContainer.removeChild(clone);
+    }
     for (var i = 0; i < allGameButtons.length; i++) {
       var gameButton = allGameButtons[i];
       gameButton.classList.remove("disabled");
-    }
+    };
+
     dynamicMessage.innerText = "CHOOSE YOUR FIGHTER";
     document.querySelector(".classic-mode-view").style.pointerEvents = "auto";
-  }, 2800);
+  }, 3000);
 };
 
 function decideWinner() {
@@ -199,7 +199,7 @@ function decideWinner() {
     playGame.gameResult = "COMPUTER WINS..";
     computer.wins++;
   };
-  
+
   displayGameResults();
   hideGameButtons();
   resetGame();
