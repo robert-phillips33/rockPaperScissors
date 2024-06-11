@@ -7,7 +7,7 @@
 - This project was written entirely by Robert Phillips.
 
 ## Preview of App
-![Rock Paper Scissors Screenshot](<Screenshot 2024-06-10 at 4.34.59 PM.png>)
+![Rock Paper Scissors Screenshot](</Users/robertphillips/rockpaperscissors1/rockPaperScissors/assets/Screenshot 2024-06-10 at 4.34.59 PM.png>)
 
 ## Live link to app below
 

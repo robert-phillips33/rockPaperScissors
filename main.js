@@ -72,6 +72,31 @@ function getRandomIndex(classicGameChoices) {
   return Math.floor(Math.random() * classicGameChoices.length)
 };
 
+function rockButtonClickHandler(event) {
+  playGame.humanSelection = "rock";
+  decideWinner();
+};
+
+function paperButtonClickHandler(event) {
+  playGame.humanSelection = "paper";
+  decideWinner();
+};
+
+function scissorsButtonClickHandler(event) {
+  playGame.humanSelection = "scissors";
+  decideWinner();
+};
+
+function waterButtonClickHandler(event) {
+  playGame.humanSelection = "water";
+  decideWinner();
+};
+
+function windButtonClickHandler(event) {
+  playGame.humanSelection = "wind";
+  decideWinner();
+};
+
 function createPlayer() {
   var human = {
     player: "Human",
@@ -138,13 +163,26 @@ function hideGameButtons() {
   };
 };
 
+function resetGame() {
+  document.querySelector(".classic-mode-view").style.pointerEvents = "none";
+
+  setTimeout(function () {
+    for (var i = 0; i < allGameButtons.length; i++) {
+      var gameButton = allGameButtons[i];
+      gameButton.classList.remove("disabled");
+    }
+    dynamicMessage.innerText = "CHOOSE YOUR FIGHTER";
+    document.querySelector(".classic-mode-view").style.pointerEvents = "auto";
+  }, 2800);
+};
+
 function decideWinner() {
   var computerChoices = classicGameChoices;
   if (playGame.gameType === "difficult") {
     computerChoices = difficultGameChoices;
   }
   var computerChoice = getRandomIndex(computerChoices);
-  playGame.computerSelection = computerChoices[computerChoice]
+  playGame.computerSelection = computerChoices[computerChoice];
 
   if (playGame.humanSelection === playGame.computerSelection) {
     playGame.gameResult = `BOTH PLAYERS CHOSE ${playGame.humanSelection.toUpperCase()}, TIE GAME`;
@@ -161,45 +199,11 @@ function decideWinner() {
     playGame.gameResult = "COMPUTER WINS..";
     computer.wins++;
   };
-
+  
   displayGameResults();
   hideGameButtons();
-
-  document.querySelector(".classic-mode-view").style.pointerEvents = "none";
-
-  setTimeout(function () {
-    for (var i = 0; i < allGameButtons.length; i++) {
-      var gameButton = allGameButtons[i];
-      gameButton.classList.remove("disabled");
-    }
-    dynamicMessage.innerText = "CHOOSE YOUR FIGHTER";
-    document.querySelector(".classic-mode-view").style.pointerEvents = "auto";
-  }, 2500);
+  resetGame();
 };
 
-function rockButtonClickHandler(event) {
-  playGame.humanSelection = "rock";
-  decideWinner();
-};
-
-function paperButtonClickHandler(event) {
-  playGame.humanSelection = "paper";
-  decideWinner();
-};
-
-function scissorsButtonClickHandler(event) {
-  playGame.humanSelection = "scissors";
-  decideWinner();
-};
-
-function waterButtonClickHandler(event) {
-  playGame.humanSelection = "water";
-  decideWinner();
-};
-
-function windButtonClickHandler(event) {
-  playGame.humanSelection = "wind";
-  decideWinner();
-};
 
 

@@ -7,7 +7,6 @@ body {
   color: greenyellow;
   height: 100vh;
   margin: auto;
-
 }
 
 main {
@@ -32,7 +31,6 @@ p {
   display: flex;
   text-align: center;
   justify-content: center;
-
 }
 
 .classic-box {
@@ -41,7 +39,6 @@ p {
   padding-top: 35px;
   border: 2px double greenyellow;
   gap: 2px;
-
 }
 
 .difficult-mode {
@@ -91,6 +88,7 @@ p {
 .select-none {
   user-select: none;
 }
+
 .playbuttons:hover {
   transform: scale(1.2);
 }
@@ -115,7 +113,7 @@ p {
 .classic-mode-view {
   display: flex;
   justify-content: center;
-  gap: 3vw;
+  gap: 1vw;
   border: 2px solid yellowgreen;
   align-items: center;
   width: 60vw;
@@ -126,7 +124,7 @@ p {
 .difficult-game-buttons {
   display: flex;
   justify-content: center;
-  gap: 3vw;
+  gap: 1vw;
   align-items: center;
 }
 
